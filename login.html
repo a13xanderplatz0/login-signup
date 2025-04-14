@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyHub - Log In</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-section">
+            <header>
+                <h1>StudyHub</h1>
+                <nav>
+                    <a href="login.html">Log In</a>
+                    <a href="signup.html" class="active">Sign Up</a>
+                </nav>
+            </header>
+
+            <main>
+                <h2>Begin Your Adventure</h2>
+                <form id="loginForm">
+                    <div class="input-group">
+                        <input type="text" id="username" placeholder="Username" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <input type="password" id="password" placeholder="Password" required>
+                    </div>
+
+                    <div class="options">
+                        <label>
+                            <input type="checkbox" id="remember"> Remember me
+                        </label>
+                        <a href="#" class="forgot-password">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit" class="btn-login">Log In</button>
+                </form>
+            </main>
+        </div>
+        
+        <div class="image-section">
+            <img src="images/campus.png" alt="UCSP Campus">
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
