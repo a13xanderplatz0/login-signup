@@ -38,44 +38,58 @@ document.querySelectorAll('.toggle-password').forEach(icon => {
     });
 });
 
+// Esperar a que el DOM esté completamente cargado
 document.addEventListener('DOMContentLoaded', function() {
+    // Seleccionar todos los botones de toggle de contraseña
     const toggleButtons = document.querySelectorAll('.toggle-password');
     
+    // Iterar sobre cada botón de toggle encontrado
     toggleButtons.forEach(button => {
+        // Agregar evento click a cada botón
         button.addEventListener('click', function(e) {
-            // Obtener el input de contraseña asociado
+            // Obtener el input de contraseña asociado usando data-target
             const passwordInput = document.getElementById(this.getAttribute('data-target'));
             
-            // Cambiar el tipo de input
+            // Cambiar el tipo de input entre password y texto
             if (passwordInput.type === 'password') {
                 passwordInput.type = 'text';
+                // Cambiar el ícono a ojo tachado
                 this.classList.remove('fa-eye');
                 this.classList.add('fa-eye-slash');
             } else {
                 passwordInput.type = 'password';
+                // Cambiar el ícono a ojo normal
                 this.classList.remove('fa-eye-slash');
                 this.classList.add('fa-eye');
             }
         });
     });
-});
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Seleccionar el ícono del ojo y el campo de contraseña
-    const togglePassword = document.querySelector('.toggle-password');
-    const passwordField = document.querySelector('#signup-password');
-
-    // Verificar que ambos elementos existan
-    if (togglePassword && passwordField) {
-        // Agregar el evento click al ícono
-        togglePassword.addEventListener('click', () => {
-            // Cambiar el tipo de input
-            const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
-            passwordField.setAttribute('type', type);
+    // Verificar si estamos en la página de signup
+    if (document.getElementById('signupForm')) {
+        // Obtener el formulario de signup
+        const signupForm = document.getElementById('signupForm');
+        
+        // Agregar evento submit al formulario
+        signupForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevenir envío por defecto
             
-            // Cambiar el ícono
-            togglePassword.classList.toggle('fa-eye');
-            togglePassword.classList.toggle('fa-eye-slash');
+            // Aquí puedes agregar la lógica de registro
+            console.log('Formulario de registro enviado');
+        });
+    }
+
+    // Verificar si estamos en la página de login
+    if (document.getElementById('loginForm')) {
+        // Obtener el formulario de login
+        const loginForm = document.getElementById('loginForm');
+        
+        // Agregar evento submit al formulario
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevenir envío por defecto
+            
+            // Aquí puedes agregar la lógica de inicio de sesión
+            console.log('Formulario de login enviado');
         });
     }
 });
