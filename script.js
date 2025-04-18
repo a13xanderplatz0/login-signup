@@ -23,44 +23,29 @@ document.getElementById('signupForm')?.addEventListener('submit', function(e) {
 });
 
 /* filepath: /home/a13xanderplatz/Documentos/dbp/script.js */
-document.querySelectorAll('.toggle-password').forEach(icon => {
-    icon.addEventListener('click', () => {
-        const input = document.getElementById(icon.dataset.target);
-        if (input.type === 'password') {
-            input.type = 'text';
-            icon.classList.remove('fa-eye');
-            icon.classList.add('fa-eye-slash');
-        } else {
-            input.type = 'password';
-            icon.classList.remove('fa-eye-slash');
-            icon.classList.add('fa-eye');
-        }
-    });
-});
 
 // Esperar a que el DOM esté completamente cargado
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Seleccionar todos los botones de toggle de contraseña
     const toggleButtons = document.querySelectorAll('.toggle-password');
-    
-    // Iterar sobre cada botón de toggle encontrado
+
     toggleButtons.forEach(button => {
-        // Agregar evento click a cada botón
-        button.addEventListener('click', function(e) {
-            // Obtener el input de contraseña asociado usando data-target
-            const passwordInput = document.getElementById(this.getAttribute('data-target'));
-            
-            // Cambiar el tipo de input entre password y texto
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                // Cambiar el ícono a ojo tachado
-                this.classList.remove('fa-eye');
-                this.classList.add('fa-eye-slash');
-            } else {
-                passwordInput.type = 'password';
-                // Cambiar el ícono a ojo normal
-                this.classList.remove('fa-eye-slash');
-                this.classList.add('fa-eye');
+        button.addEventListener('click', function () {
+            // Obtener el campo de contraseña relacionado
+            const passwordInput = document.getElementById(this.dataset.target);
+
+            // Verificar si el campo de contraseña existe
+            if (passwordInput) {
+                // Cambiar el tipo de input entre 'password' y 'text'
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    this.classList.remove('fa-eye');
+                    this.classList.add('fa-eye-slash'); // Cambiar el ícono a ojo tachado
+                } else {
+                    passwordInput.type = 'password';
+                    this.classList.remove('fa-eye-slash');
+                    this.classList.add('fa-eye'); // Cambiar el ícono a ojo normal
+                }
             }
         });
     });

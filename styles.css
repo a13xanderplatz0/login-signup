@@ -119,13 +119,13 @@ body {
 
 /* Botones de imagen */
 .image-buttons {
-    position: absolute;
-    bottom: 2.5rem;
-    left: 50%;
-    transform: translateX(-50%);
+    position: absolute; /* Posiciona el botón relativo al contenedor padre */
+    top: 300px; /* Mueve el botón más abajo */
+    left: 50%; /* Centra el botón horizontalmente */
+    transform: translateX(-50%); /* Asegura el centrado exacto */
+    z-index: 10; /* Asegura que el botón esté encima del cubo */
     display: flex;
     gap: 1rem;
-    z-index: 2;
     margin-bottom: 1.5rem;  /* Aumentado el margen inferior */
 }
 
@@ -341,11 +341,6 @@ main {
 .password-container {
     position: relative;
     width: 100%;
-    background-color: #ffffff;
-}
-
-.password-container input {
-    width: 100%;
 }
 
 .toggle-password {
@@ -356,10 +351,16 @@ main {
     cursor: pointer;
     color: #666;
     z-index: 10;
+    padding: 5px;
 }
 
 .toggle-password:hover {
     color: #333;
+}
+
+.password-container input {
+    width: 100%;
+    padding-right: 35px; /* Espacio para el ícono del ojo */
 }
 
 /* Tablet (768px y superior) */
@@ -439,23 +440,22 @@ main {
     }
 }
 
-/* Cubo 3D */
+/* Contenedor del cubo */
 .cube-container {
     width: 200px;
     height: 200px;
-    perspective: 800px;  /* Profundidad 3D */
-    margin: 120px auto 30px;
+    perspective: 800px; /* Profundidad 3D */
+    margin: 50px auto;
     position: relative;
-    z-index: 1;
 }
 
-/* Estilos del cubo */
+/* Cubo 3D */
 .cube {
     position: relative;
     width: 100%;
     height: 100%;
-    transform-style: preserve-3d;  /* Mantiene el efecto 3D */
-    animation: rotate 15s infinite linear;
+    transform-style: preserve-3d; /* Mantiene el efecto 3D */
+    animation: rotate 15s infinite linear; /* Animación continua */
 }
 
 /* Caras del cubo */
@@ -470,7 +470,7 @@ main {
     box-shadow: 0 0 100px rgba(8, 178, 245, 0.61);
 }
 
-/* Posicionamiento de cada cara del cubo */
+/* Posicionamiento de las caras */
 .front { transform: translateZ(100px); }
 .back { transform: rotateY(180deg) translateZ(100px); }
 .right { transform: rotateY(90deg) translateZ(100px); }
@@ -480,22 +480,11 @@ main {
 
 /* Animación de rotación */
 @keyframes rotate {
-    from { transform: rotateX(0) rotateY(0) rotateZ(0); }
-    to { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
-}
-
-.cube-container:hover .cube {
-    animation-play-state: paused;
-}
-
-/* Responsive */
-@media screen and (max-width: 768px) {
-    .container {
-        flex-direction: column;
+    0% {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
     }
-    
-    .image-section {
-        display: none;
+    100% {
+        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
     }
 }
 
