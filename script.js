@@ -77,4 +77,27 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log('Formulario de login enviado');
         });
     }
+
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+
+    // Verificar si hay un tema guardado en localStorage
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        body.classList.add(savedTheme);
+        themeToggle.checked = savedTheme === 'dark-theme';
+    }
+
+    // Alternar entre temas claro y oscuro
+    themeToggle.addEventListener('change', function () {
+        if (this.checked) {
+            body.classList.add('dark-theme');
+            body.classList.remove('light-theme');
+            localStorage.setItem('theme', 'dark-theme'); // Guardar el tema en localStorage
+        } else {
+            body.classList.add('light-theme');
+            body.classList.remove('dark-theme');
+            localStorage.setItem('theme', 'light-theme'); // Guardar el tema en localStorage
+        }
+    });
 });
