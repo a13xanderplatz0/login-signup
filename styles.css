@@ -498,3 +498,81 @@ main {
 input::placeholder {
     color: #999;
 }
+
+/* Estilos generales para pantallas grandes (PC) */
+.container {
+    width: 85%; /* El contenedor ocupa el 85% del ancho de la pantalla */
+    min-height: 85vh; /* Altura mínima del 85% de la ventana */
+    margin: 2rem auto;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* Ajustes para pantallas medianas (laptops y tablets) */
+@media screen and (max-width: 1024px) {
+    .container {
+        width: 90%; /* Reduce el ancho del contenedor */
+        min-height: 80vh; /* Ajusta la altura mínima */
+    }
+
+    .cube-container {
+        width: 150px; /* Reduce el tamaño del cubo */
+        height: 150px;
+    }
+
+    .image-buttons {
+        top: 200px; /* Ajusta la posición del botón */
+    }
+}
+
+/* Ajustes para pantallas pequeñas (móviles) */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Cambia el diseño a una columna */
+        width: 95%; /* Ocupa casi todo el ancho de la pantalla */
+        min-height: auto; /* Permite que la altura sea dinámica */
+    }
+
+    .form-section {
+        padding: 1rem; /* Reduce el padding del formulario */
+    }
+
+    .cube-container {
+        width: 120px; /* Reduce aún más el tamaño del cubo */
+        height: 120px;
+        margin: 20px auto; /* Centra el cubo */
+    }
+
+    .image-buttons {
+        top: 180px; /* Ajusta la posición del botón */
+    }
+
+    h1, h2 {
+        font-size: 1.5rem; /* Reduce el tamaño de los encabezados */
+    }
+
+    input {
+        font-size: 0.9rem; /* Reduce el tamaño del texto en los campos */
+    }
+
+    .btn-login {
+        font-size: 0.9rem; /* Ajusta el tamaño del botón */
+        padding: 10px; /* Reduce el padding del botón */
+    }
+}
+
+/* Ajustes para pantallas muy pequeñas (teléfonos pequeños) */
+@media screen and (max-width: 480px) {
+    .cube-container {
+        width: 100px; /* Tamaño más pequeño del cubo */
+        height: 100px;
+    }
+
+    .image-buttons {
+        top: 150px; /* Ajusta la posición del botón */
+    }
+
+    h1, h2 {
+        font-size: 1.2rem; /* Reduce aún más el tamaño de los encabezados */
+    }
+}
