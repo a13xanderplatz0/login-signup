@@ -1,1 +1,1 @@
-Proyecto de plataforma en la que estudiantes pueden practicar con exámenes estudiar con recursos 
+Proyecto de plataforma en la que estudiantes pueden practicar con exámenes y estudiar con recursos 
